@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  route_name: MyString
+  statuions_name: MyString
+  time: 1
+  chintais_id: 1
+
+two:
+  route_name: MyString
+  statuions_name: MyString
+  time: 1
+  chintais_id: 1

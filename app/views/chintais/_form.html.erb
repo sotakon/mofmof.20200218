@@ -1,0 +1,34 @@
+<%= form_with(model: @chintai, local: true ) do |form| %>
+  <% if @chintai.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @chintai.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @chintai.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p><%= form.label :物件名 %></p>
+  <p><%= form.text_field :name %></p>
+  <p><%= form.label :賃料 %></p>
+  <p><%= form.text_field :rent %>円</p>
+  <p><%= form.label :住所 %></p>
+  <p><%= form.text_field :adress %></p>
+  <p><%= form.label :築年数 %></p>
+  <p><%= form.text_field :age %>年</p>
+  <p><%= form.label :備考 %></p>
+  <p><%= form.text_area :remark %></p>
+  <% i = 1 %>
+  <%= form.fields_for :stations do |f| %>
+    <h3>最寄り駅<%= i %></h3>
+    <p><%= f.label :路線名 %></p>
+    <p><%= f.text_field :route_name %></p>
+    <p><%= f.label :駅名 %></p>
+    <p><%= f.text_field :statuions_name %></p>
+    <p><%= f.label :徒歩分数 %></p>
+    <p><%= f.text_field :time %><span>分</span></p>
+    <% i += 1 %>
+  <% end %>
+  <%= form.submit  "登録する" %>
+  <% end %>
