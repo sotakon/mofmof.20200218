@@ -1,0 +1,2 @@
+module ChintaisHelper
+end

@@ -1,0 +1,25 @@
+<h1>物件一覧</h1>
+<p><%= notice %></p>
+<table>
+<% @chintais.each do |chintai| %>
+<tr>
+  <th>物件名</th>
+  <th>賃料</th>
+  <th>住所</th>
+  <th>築年数</th>
+  <th>備考</th>
+</tr>
+<tr>
+  <td><%= chintai.name %></td>
+  <td><%= chintai.rent %>円</td>
+  <td><%= chintai.adress %></td>
+  <td><%= chintai.age %>年</td>
+  <td><%= chintai.remark %></td>
+  <td><%= link_to '詳細', chintai_path(chintai.id) %></td>
+  <td><%= link_to "編集", edit_chintai_path(chintai.id) %></td>
+  <td><%= link_to '削除', chintai_path(chintai.id), method: :delete,data: { confirm: '本当に削除していいですか？' } %>
+</tr>
+<% end %>
+</table>
+<br>
+<%= link_to '物件を登録する', new_chintai_path %>
